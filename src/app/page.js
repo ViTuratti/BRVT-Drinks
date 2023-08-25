@@ -1,6 +1,8 @@
+import Titulo from "@/components/Titulo";
 
 export default function Home() {
   return ( //JSX
+  <>
     <nav className="bg-rose-950 p-2 flex gap-3 items-end">
       <h1 className="text-4xl text-zinc-100 font-bold uppercase">BRVT DRINKS</h1>
       <ul>
@@ -12,5 +14,8 @@ export default function Home() {
         </li>
       </ul>
     </nav>
+    <Titulo>Cocktails</Titulo>
+    <Titulo>Tropicais</Titulo>
+    </>
   )
 }
