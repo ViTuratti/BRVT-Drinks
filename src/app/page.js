@@ -3,21 +3,26 @@ import Titulo from "@/components/Titulo";
 
 export default function Home() {
 
-  const filmes= [
+  const drinks= [
     {
-      titulo: "Sobrenatural: A Porta Vermelha",
-      nota: 9.5,
-      poster: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/6lp4uDxLqLEw1CzW1SUOYJ3zdKD.jpg"
+      titulo: "Albacora",
+      nota: 45.00,
+      poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-Albacora-scaled-1.jpg"
     },
     {
-      titulo: "Invocação do Mal 3: A Ordem do Demônio",
-      nota: 9.8,
-      poster: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/tLmaOXT9rMb17ISQDURKQIu3Okk.jpg"
+      titulo: "Apple Martini",
+      nota: 39.99,
+      poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-Apple-Martini-1-scaled-1.jpg"
     },
     {
-      titulo: "O Ritual",
-      nota: 7.5,
-      poster: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/yFRTz69BvtqZa7VjkyNGehjVb6p.jpg"
+      titulo: "Amore Mio",
+      nota: 40.00,
+      poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-Amore-Mio-scaled-1.jpg"
+    },  
+    {
+      titulo: "Amarula Chocolate Martini",
+      nota: 37.50,
+      poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-amarula-Chocolate-Martini-scaled-1.jpg"
     }
   ] 
 
