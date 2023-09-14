@@ -5,21 +5,25 @@ export default function Home() {
 
   const drinks= [
     {
+      id: 1,
       titulo: "Albacora",
       nota: 45.00,
       poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-Albacora-scaled-1.jpg"
     },
     {
+      id: 2,
       titulo: "Apple Martini",
       nota: 39.99,
       poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-Apple-Martini-1-scaled-1.jpg"
     },
     {
+      id: 3,
       titulo: "Amore Mio",
       nota: 40.00,
       poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-Amore-Mio-scaled-1.jpg"
     },  
     {
+      id: 4,
       titulo: "Amarula Chocolate Martini",
       nota: 37.50,
       poster: "https://cocktailteam.net/wp-content/uploads/2017/12/Cocktail-amarula-Chocolate-Martini-scaled-1.jpg"
