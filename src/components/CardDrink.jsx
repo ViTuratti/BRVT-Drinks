@@ -1,57 +1,56 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { HeartIcon } from '@heroicons/react/24/solid'
-import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline'
+import { useEffect, useState } from "react";
+import { HeartIcon } from '@heroicons/react/24/solid';
+import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 
-export default function CardDrink({drink}){
-   const [ favorito, setFavorito ] = useState(false)
+export default function CardDrink({ coquetel }) {
+  const [favorito, setFavorito] = useState(false);
 
-   useEffect(() => {
-     let favoritos = JSON.parse (localStorage.getItem("favoritos") ) || []
-     const favorito = favoritos.find(f => f.id == drink.id)
-     setFavorito(favorito)
-    }, [])
+  useEffect(() => {
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    const favorito = favoritos.find(f => f.idDrink === coquetel.idDrink);
+    setFavorito(!!favorito);
+  }, [coquetel.idDrink]);
 
-   function favoritar(){
-    setFavorito(true)
-    let favoritos = JSON.parse (localStorage.getItem("favoritos") ) || []
-    favoritos.push(drink)
-    localStorage.setItem("favoritos",  JSON.stringify (favoritos))
+  function favoritar() {
+    setFavorito(true);
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    favoritos.push(coquetel);
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
   }
-  
-  function desfavoritar(){
-    setFavorito(false)
-    let favoritos = JSON.parse (localStorage.getItem("favoritos") ) || []
-    const favoritosAtualizado = favoritos.filter(f => f.id !== drink.id)
-    localStorage.setItem("favoritos",  JSON.stringify (favoritosAtualizado))
-    }
 
-    return(
-        <div className="flex flex-col items-center justify-between gap-1 w-40 m-2 relative">
-          {favorito?
-            <HeartIcon 
-              className="h-6 w-6 text-rose-900 absolute top-1 right-2 cursor-pointer"
-              onClick={desfavoritar}
-              />
-              :
-              <HeartIconOutline
-                className="h-6 w-6 absolute top-1 right-2 cursor-pointer text-white hover:text-rose-900" 
-                onClick={favoritar}
-              />          
-              }
+  function desfavoritar() {
+    setFavorito(false);
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    const favoritosAtualizado = favoritos.filter(f => f.idDrink !== coquetel.idDrink);
+    localStorage.setItem("favoritos", JSON.stringify(favoritosAtualizado));
+  }
 
-        <img className="rounded h-56" src={drink.poster} alt="Poster do Drink" />
-        <span className="font-bold text-lg w-full line-clamp-1 text-center">{drink.titulo}</span>
-        <div className="flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-lime-400">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-      </svg>
+  return (
+    <div className="flex flex-col items-center justify-between gap-1 w-40 m-2 relative">
+      {favorito ? (
+        <HeartIcon
+          className="h-6 w-6 text-rose-900 absolute top-1 right-2 cursor-pointer"
+          onClick={desfavoritar}
+        />
+      ) : (
+        <HeartIconOutline
+          className="h-6 w-6 absolute top-1 right-2 cursor-pointer text-white hover:text-rose-900"
+          onClick={favoritar}
+        />
+      )}
 
-  
-          <span className="text-slate-400">{drink.nota}</span>
-        </div>
-        <a href="#" className="bg-pink-300 w-full rounded text-center py-1 hover:bg-rose-950">Detalhes</a>
+      <img className="rounded h-56" src={coquetel.strDrinkThumb} alt="Poster do Drink" />
+      <span className="font-bold text-lg w-full line-clamp-1 text-center">{coquetel.strDrink}</span>
+      <div className="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-straw" viewBox="0 0 16 16">
+    <path d="M13.902.334a.5.5 0 0 1-.28.65l-2.254.902-.4 1.927c.376.095.715.215.972.367.228.135.56.396.56.82 0 .046-.004.09-.011.132l-.962 9.068a1.28 1.28 0 0 1-.524.93c-.488.34-1.494.87-3.01.87-1.516 0-2.522-.53-3.01-.87a1.28 1.28 0 0 1-.524-.93L3.51 5.132A.78.78 0 0 1 3.5 5c0-.424.332-.685.56-.82.262-.154.607-.276.99-.372C5.824 3.614 6.867 3.5 8 3.5c.712 0 1.389.045 1.985.127l.464-2.215a.5.5 0 0 1 .303-.356l2.5-1a.5.5 0 0 1 .65.278zM9.768 4.607A13.991 13.991 0 0 0 8 4.5c-1.076 0-2.033.11-2.707.278A3.284 3.284 0 0 0 4.645 5c.146.073.362.15.648.222C5.967 5.39 6.924 5.5 8 5.5c.571 0 1.109-.03 1.588-.085l.18-.808zm.292 1.756C9.445 6.45 8.742 6.5 8 6.5c-1.133 0-2.176-.114-2.95-.308a5.514 5.514 0 0 1-.435-.127l.838 8.03c.013.121.06.186.102.215.357.249 1.168.69 2.438.69 1.27 0 2.081-.441 2.438-.69.042-.029.09-.094.102-.215l.852-8.03a5.517 5.517 0 0 1-.435.127 8.88 8.88 0 0 1-.89.17zM4.467 4.884s.003.002.005.006l-.005-.006zm7.066 0-.005.006c.002-.004.005-.006.005-.006zM11.354 5a3.174 3.174 0 0 0-.604-.21l-.099.445.055-.013c.286-.072.502-.149.648-.222z"/>
+  </svg>
+
+        <span className="text-slate-400">{coquetel.strAlcoholic}</span>
       </div>
-    )   
+      <a href="#" className="bg-pink-300 w-full rounded text-center py-1 hover:bg-rose-950">Detalhes</a>
+    </div>
+  );
 }
