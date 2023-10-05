@@ -4,6 +4,7 @@ import loginimage from "@/images/login.jpg"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
+import { serverLogin } from "@/actions/auth";
 
 export default function Login(){
     const[email, setEmail] = useState("")
@@ -12,7 +13,8 @@ export default function Login(){
 
     function login(e){
         e.preventDefault()
-        if (email === "dgk.b@hotmail.com" && senha === "123"){
+        if (email === "victorturattioliveira@gmail.com" && senha === "123"){
+            serverLogin()
             push("/")
         }else{
             toast.error("Credenciais inválidas", {

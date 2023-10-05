@@ -1,4 +1,5 @@
 import CardDrink from "@/components/CardDrink";
+import NavBar from "@/components/NavBar";
 import Titulo from "@/components/Titulo";
 
 async function carregarDados() {
@@ -20,10 +21,7 @@ export default async function Home() {
 
   return (
     <>
-      <nav className="bg-rose-950 p-2 flex gap-3 items-end">
-        <h1 className="text-4xl text-zinc-100 font-bold uppercase">BRVT DRINKS</h1>
-        <a href="/favoritos" className="text-zinc-100">Favoritos</a>
-      </nav>
+      <NavBar/>
 
       <Titulo>Cocktails</Titulo>
       <section className="flex flex-wrap gap-2">
